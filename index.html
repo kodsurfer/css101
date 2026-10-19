@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Основы CSS — интерактив для студентов-дизайнеров</title>
+<style>
+:root{--bg:#0f1115;--panel:#171a21;--card:#1d2129;--text:#f6f7fb;--muted:#aeb6c5;--border:#303746;--accent:#7c5cff;--accent-bg:#2a214f;--blue:#5fa8ff;--green:#56c878;--orange:#f0a44b;--pink:#e86fb4;--red:#ef6a6a}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,system-ui,sans-serif;background:radial-gradient(circle at 0 0,rgba(124,92,255,.13),transparent 32%),var(--bg);color:var(--text);line-height:1.5}
+button,input,select{font:inherit}.wrap{width:min(1160px,calc(100% - 28px));margin:auto;padding:32px 0 70px}.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:center}.panel,.card{border:1px solid var(--border);border-radius:22px;background:rgba(23,26,33,.94)}.panel{padding:24px;margin-top:22px}.card{padding:22px}h1,h2,h3{margin:0;line-height:1.1}h1{font-size:clamp(36px,6vw,66px)}h2{font-size:clamp(25px,3vw,38px)}p{margin:0}.lead,.muted{color:var(--muted)}.lead{font-size:18px;margin-top:17px}.tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:13px}.tag{border:1px solid var(--border);border-radius:999px;padding:6px 10px;font-size:12px;color:var(--muted)}.section-head{display:flex;justify-content:space-between;gap:16px;margin-bottom:19px}.btn{min-height:44px;border:1px solid var(--border);border-radius:13px;padding:10px 14px;background:transparent;color:var(--text);cursor:pointer}.btn.primary,.btn.active{background:var(--accent-bg);border-color:var(--accent)}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.code{background:#0c0f14;border:1px solid var(--border);border-radius:15px;padding:15px;white-space:pre-wrap;font:14px ui-monospace,monospace;color:#d5d9e2;overflow:auto}.explain{margin-top:12px;border:1px solid var(--border);border-radius:14px;padding:13px 14px;color:var(--muted)}.preview{min-height:235px;background:#f7f7fa;color:#17191f;border-radius:18px;padding:22px;border:1px solid var(--border)}.selector-buttons{display:flex;gap:9px;flex-wrap:wrap}.demo-card{border:2px solid #ddd;border-radius:16px;padding:17px;background:white;margin-top:15px}.cascade{display:grid;gap:10px}.rule{text-align:left}.target{min-height:220px;background:#f7f7fa;color:#17191f;border-radius:18px;display:grid;place-items:center}.target-box{font-weight:700;font-size:22px}.boxmodel{background:rgba(240,164,75,.18);padding:34px;border:2px dashed var(--orange);border-radius:18px;text-align:center}.border-layer{background:rgba(95,168,255,.16);padding:26px;border:5px solid var(--blue);border-radius:14px}.padding-layer{background:rgba(86,200,120,.18);padding:26px;border:2px dashed var(--green);border-radius:10px}.content-layer{min-height:80px;display:grid;place-items:center;background:white;color:#17191f;border-radius:8px;font-weight:700}.controls{display:grid;gap:13px}.control label{display:flex;justify-content:space-between;color:var(--muted);font-size:14px}.control input[type=range]{width:100%}.select,.input{width:100%;min-height:44px;border:1px solid var(--border);border-radius:12px;background:#10131a;color:var(--text);padding:10px 12px}.type-preview,.builder-preview{min-height:250px;background:#f7f7fa;color:#17191f;border-radius:18px;padding:23px}.flex-stage{min-height:300px;border:1px solid var(--border);border-radius:18px;background:#11141b;padding:18px;display:flex;gap:12px}.flex-item{min-width:80px;min-height:80px;border-radius:16px;display:grid;place-items:center;color:white;font-weight:700}.flex-item:nth-child(1){background:#7c5cff}.flex-item:nth-child(2){background:#5fa8ff}.flex-item:nth-child(3){background:#e86fb4}.flex-item:nth-child(4){background:#56c878}.hover-card{padding:28px;border-radius:18px;background:white;color:#17191f;border:1px solid #ddd;transition:.25s}.hover-card:hover,.hover-card.force{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,.18);border-color:#7c5cff}.builder{display:grid;grid-template-columns:.75fr 1.25fr;gap:18px}.live-card{background:white;border:2px solid #ddd;border-radius:16px;padding:22px}.quiz{display:grid;gap:22px}.option{display:flex;gap:10px;align-items:center;padding:11px 13px;margin-top:8px;border:1px solid var(--border);border-radius:13px;background:var(--card)}.option.correct{border-color:var(--green)}.option.wrong{border-color:var(--red)}.score{border:1px solid var(--border);border-radius:999px;padding:6px 10px;color:var(--muted)}.cheats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.cheat{border:1px solid var(--border);border-radius:16px;padding:15px}.cheat small{color:var(--muted)}@media(max-width:900px){.hero,.grid2,.builder{grid-template-columns:1fr}.grid3,.cheats{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.wrap{width:min(100% - 18px,1160px)}.panel,.card{padding:17px}.grid3,.cheats{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<section class="hero">
+  <div>
+    <div class="tags"><span class="tag">CSS</span><span class="tag">визуальный стиль</span><span class="tag">для дизайнеров</span></div>
+    <h1>CSS — визуальный язык веб-страницы</h1>
+    <p class="lead">HTML задаёт смысл и структуру, а CSS управляет цветом, типографикой, отступами, сеткой, композицией и состояниями элементов.</p>
+  </div>
+  <div class="card">
+    <h3>Из HTML в дизайн</h3>
+    <div class="code" style="margin-top:14px">button {
+  background: #7c5cff;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 12px;
+}</div>
+  </div>
+</section>
+
+<section class="panel">
+  <div class="section-head"><div><h2>1. Селекторы</h2><p class="muted">Сначала CSS выбирает элемент, затем задаёт ему стиль.</p></div></div>
+  <div class="grid2">
+    <div>
+      <div class="selector-buttons">
+        <button class="btn selector active" data-sel="tag">по тегу</button>
+        <button class="btn selector" data-sel="class">по классу</button>
+        <button class="btn selector" data-sel="id">по id</button>
+      </div>
+      <div class="explain" id="sel-explain"></div>
+      <div class="code" id="sel-code" style="margin-top:12px"></div>
+    </div>
+    <div class="preview">
+      <h3 id="demo-title">Карточка проекта</h3>
+      <div class="demo-card" id="demo-card">
+        <p>Новый фирменный стиль и лендинг.</p>
+        <button id="demo-button" style="margin-top:12px;padding:10px 14px;border:0;border-radius:10px;background:#17191f;color:white">Открыть кейс</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="panel">
+  <div class="section-head"><div><h2>2. Каскад и приоритет</h2><p class="muted">Несколько правил могут действовать на один элемент. Какое победит?</p></div><button class="btn" id="cascade-reset">Сбросить</button></div>
+  <div class="grid2">
+    <div class="cascade">
+      <button class="btn rule" data-rule="tag">p { color: blue; }</button>
+      <button class="btn rule" data-rule="class">.note { color: green; }</button>
+      <button class="btn rule" data-rule="id">#important { color: red; }</button>
+    </div>
+    <div>
+      <div class="target"><div class="target-box" id="cascade-target">Какой цвет победит?</div></div>
+      <div class="explain" id="cascade-explain">Нажимай правила по очереди.</div>
+    </div>
+  </div>
+</section>
+
+<section class="panel">
+  <div class="section-head"><div><h2>3. Box model</h2><p class="muted">Content → padding → border → margin.</p></div></div>
+  <div class="grid2">
+    <div class="boxmodel" id="margin-layer">margin
+      <div class="border-layer" id="border-layer">border
+        <div class="padding-layer" id="padding-layer">padding
+          <div class="content-layer">content</div>
+        </div>
+      </div>
+    </div>
+    <div class="controls">
+      <div class="control"><label><span>margin</span><span id="margin-val"></span></label><input type="range" id="margin" min="0" max="70" value="34"></div>
+      <div class="control"><label><span>border</span><span id="border-val"></span></label><input type="range" id="border" min="0" max="14" value="5"></div>
+      <div class="control"><label><span>padding</span><span id="padding-val"></span></label><input type="range" id="padding" min="0" max="60" value="26"></div>
+      <div class="explain">Двигай ползунки и смотри, как меняется коробка.</div>
+    </div>
+  </div>
+</section>
+
+<section class="panel">
+  <div class="section-head"><div><h2>4. Типографика</h2><p class="muted">Размер, насыщенность и line-height создают визуальную иерархию.</p></div></div>
+  <div class="grid2">
+    <div class="controls">
+      <label>Размер заголовка<input type="range" id="font-size" min="24" max="72" value="46"></label>
+      <label>Насыщенность<select class="select" id="font-weight"><option value="400">400</option><option value="500">500</option><option value="700" selected>700</option><option value="900">900</option></select></label>
+      <label>Line-height<input type="range" id="line-height" min="10" max="20" value="12"></label>
+      <label>Цвет<input class="input" type="color" id="text-color" value="#17191f"></label>
+      <div class="code" id="type-code"></div>
+    </div>
+    <div class="type-preview"><h2 id="type-title" style="margin-bottom:14px">Designing for the web</h2><p id="type-text">Хорошая типографика помогает быстро понять структуру страницы и различать главное и второстепенное.</p></div>
+  </div>
+</section>
+
+<section class="panel">
+  <div class="section-head"><div><h2>5. Flexbox</h2><p class="muted">Меняй направление и выравнивание контейнера.</p></div></div>
+  <div class="grid2">
+    <div class="controls">
+      <label>flex-direction<select class="select" id="direction"><option>row</option><option>column</option></select></label>
+      <label>justify-content<select class="select" id="justify"><option>flex-start</option><option>center</option><option>space-between</option><option>space-around</option></select></label>
+      <label>align-items<select class="select" id="align"><option>stretch</option><option>flex-start</option><option>center</option><option>flex-end</option></select></label>
+      <label>gap<input type="range" id="gap" min="0" max="40" value="12"></label>
+      <div class="code" id="flex-code"></div>
+    </div>
+    <div class="flex-stage" id="flex-stage"><div class="flex-item">1</div><div class="flex-item">2</div><div class="flex-item">3</div><div class="flex-item">4</div></div>
+  </div>
+</section>
+
+<section class="panel">
+  <div class="section-head"><div><h2>6. :hover</h2><p class="muted">CSS умеет описывать состояния интерактивных элементов.</p></div><button class="btn primary" id="hover-toggle">Показать hover</button></div>
+  <div class="grid2">
+    <div class="code">.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,.18);
+  border-color: #7c5cff;
+}</div>
+    <div class="hover-card" id="hover-card"><h3>Project Card</h3><p style="margin-top:8px;color:#676d78">Наведи курсор или нажми кнопку сверху.</p></div>
+  </div>
+</section>
+
+<section class="panel">
+  <div class="section-head"><div><h2>7. Собери свою карточку</h2><p class="muted">Меняй параметры и получай готовый CSS.</p></div></div>
+  <div class="builder">
+    <div class="controls">
+      <label>Фон<input class="input" type="color" id="card-bg" value="#ffffff"></label>
+      <label>Скругление<input type="range" id="card-radius" min="0" max="40" value="16"></label>
+      <label>Padding<input type="range" id="card-padding" min="8" max="48" value="22"></label>
+      <label>Тень<select class="select" id="card-shadow"><option value="none">Нет</option><option value="soft" selected>Мягкая</option><option value="strong">Сильная</option></select></label>
+    </div>
+    <div>
+      <div class="builder-preview"><div class="live-card" id="live-card"><h3>Visual identity</h3><p style="margin-top:8px;color:#656b77">Карточка проекта из портфолио.</p></div></div>
+      <div class="code" id="builder-code" style="margin-top:12px"></div>
+    </div>
+  </div>
+</section>
+
+<section class="panel">
+  <div class="section-head"><div><h2>8. Мини-квиз</h2><p class="muted">Проверь основные понятия.</p></div><div class="score" id="score">0 / 5</div></div>
+  <div class="quiz" id="quiz">
+    <fieldset data-answer="a"><legend><b>1. Что выбирает .card?</b></legend><label class="option"><input type="radio" name="q1" value="a"> Элемент с class="card"</label><label class="option"><input type="radio" name="q1" value="b"> Тег card</label></fieldset>
+    <fieldset data-answer="b"><legend><b>2. Какое свойство задаёт внутренний отступ?</b></legend><label class="option"><input type="radio" name="q2" value="a"> margin</label><label class="option"><input type="radio" name="q2" value="b"> padding</label></fieldset>
+    <fieldset data-answer="a"><legend><b>3. Что делает border-radius?</b></legend><label class="option"><input type="radio" name="q3" value="a"> Скругляет углы</label><label class="option"><input type="radio" name="q3" value="b"> Меняет шрифт</label></fieldset>
+    <fieldset data-answer="b"><legend><b>4. Как включить Flexbox?</b></legend><label class="option"><input type="radio" name="q4" value="a"> position: flex</label><label class="option"><input type="radio" name="q4" value="b"> display: flex</label></fieldset>
+    <fieldset data-answer="a"><legend><b>5. Что означает :hover?</b></legend><label class="option"><input type="radio" name="q5" value="a"> Состояние при наведении</label><label class="option"><input type="radio" name="q5" value="b"> Новый HTML-тег</label></fieldset>
+  </div>
+  <div style="display:flex;gap:10px;margin-top:16px"><button class="btn primary" id="check">Проверить</button><button class="btn" id="reset-quiz">Сбросить</button></div>
+  <div class="explain" id="quiz-feedback">Ответь на вопросы и нажми «Проверить».</div>
+</section>
+
+<section class="panel">
+  <div class="section-head"><div><h2>Шпаргалка</h2><p class="muted">Базовые свойства для первых макетов.</p></div></div>
+  <div class="cheats">
+    <div class="cheat"><b>color</b><br><small>цвет текста</small></div>
+    <div class="cheat"><b>background</b><br><small>фон</small></div>
+    <div class="cheat"><b>font-size</b><br><small>размер текста</small></div>
+    <div class="cheat"><b>line-height</b><br><small>межстрочный интервал</small></div>
+    <div class="cheat"><b>margin</b><br><small>внешний отступ</small></div>
+    <div class="cheat"><b>padding</b><br><small>внутренний отступ</small></div>
+    <div class="cheat"><b>border-radius</b><br><small>скругление</small></div>
+    <div class="cheat"><b>display: flex</b><br><small>flex-контейнер</small></div>
+  </div>
+</section>
+</main>
+
+<script>
+(() => {
+const qs=s=>document.querySelector(s), qsa=s=>[...document.querySelectorAll(s)];
+
+const selectorData={
+ tag:{text:'Селектор по тегу применяет стиль ко всем элементам этого типа.',code:'h3 {\n  color: #7c5cff;\n}',run:()=>{qs('#demo-title').style.color='#7c5cff';qs('#demo-card').style.borderColor='#ddd';qs('#demo-button').style.background='#17191f'}},
+ class:{text:'Класс начинается с точки: .card. Его удобно переиспользовать.',code:'.demo-card {\n  border-color: #e86fb4;\n}',run:()=>{qs('#demo-title').style.color='#17191f';qs('#demo-card').style.borderColor='#e86fb4';qs('#demo-button').style.background='#17191f'}},
+ id:{text:'id начинается с # и обычно уникален на странице.',code:'#demo-button {\n  background: #5fa8ff;\n}',run:()=>{qs('#demo-title').style.color='#17191f';qs('#demo-card').style.borderColor='#ddd';qs('#demo-button').style.background='#5fa8ff'}}
+};
+function setSelector(k){qsa('.selector').forEach(b=>b.classList.toggle('active',b.dataset.sel===k));qs('#sel-explain').textContent=selectorData[k].text;qs('#sel-code').textContent=selectorData[k].code;selectorData[k].run()}
+qsa('.selector').forEach(b=>b.addEventListener('click',()=>setSelector(b.dataset.sel)));setSelector('tag');
+
+const colors={tag:'#355ed8',class:'#278a4b',id:'#d64a4a'}, notes={tag:'Правило по тегу.',class:'Класс специфичнее тега.',id:'id специфичнее класса.'};
+qsa('[data-rule]').forEach(b=>b.addEventListener('click',()=>{qsa('[data-rule]').forEach(x=>x.classList.remove('active'));b.classList.add('active');qs('#cascade-target').style.color=colors[b.dataset.rule];qs('#cascade-explain').textContent=notes[b.dataset.rule]}));
+qs('#cascade-reset').addEventListener('click',()=>{qsa('[data-rule]').forEach(x=>x.classList.remove('active'));qs('#cascade-target').style.color='#17191f';qs('#cascade-explain').textContent='Нажимай правила по очереди.'});
+
+function renderBox(){let m=qs('#margin').value,b=qs('#border').value,p=qs('#padding').value;qs('#margin-layer').style.padding=m+'px';qs('#border-layer').style.borderWidth=b+'px';qs('#padding-layer').style.padding=p+'px';qs('#margin-val').textContent=m+'px';qs('#border-val').textContent=b+'px';qs('#padding-val').textContent=p+'px'}
+['#margin','#border','#padding'].forEach(s=>qs(s).addEventListener('input',renderBox));renderBox();
+
+function renderType(){let size=qs('#font-size').value,w=qs('#font-weight').value,lh=(qs('#line-height').value/10).toFixed(1),c=qs('#text-color').value;qs('#type-title').style.fontSize=size+'px';qs('#type-title').style.fontWeight=w;qs('#type-title').style.lineHeight=lh;qs('#type-title').style.color=c;qs('#type-text').style.lineHeight=lh;qs('#type-code').textContent='h2 {\n  font-size: '+size+'px;\n  font-weight: '+w+';\n  line-height: '+lh+';\n  color: '+c+';\n}'}
+['#font-size','#font-weight','#line-height','#text-color'].forEach(s=>qs(s).addEventListener('input',renderType));renderType();
+
+function renderFlex(){let d=qs('#direction').value,j=qs('#justify').value,a=qs('#align').value,g=qs('#gap').value,st=qs('#flex-stage');st.style.flexDirection=d;st.style.justifyContent=j;st.style.alignItems=a;st.style.gap=g+'px';qs('#flex-code').textContent='.container {\n  display: flex;\n  flex-direction: '+d+';\n  justify-content: '+j+';\n  align-items: '+a+';\n  gap: '+g+'px;\n}'}
+['#direction','#justify','#align','#gap'].forEach(s=>qs(s).addEventListener('input',renderFlex));renderFlex();
+
+let hf=false;qs('#hover-toggle').addEventListener('click',()=>{hf=!hf;qs('#hover-card').classList.toggle('force',hf);qs('#hover-toggle').textContent=hf?'Убрать hover':'Показать hover'});
+
+const shadows={none:'none',soft:'0 12px 30px rgba(0,0,0,.12)',strong:'0 20px 50px rgba(0,0,0,.24)'};
+function renderCard(){let bg=qs('#card-bg').value,r=qs('#card-radius').value,p=qs('#card-padding').value,sh=shadows[qs('#card-shadow').value],el=qs('#live-card');el.style.background=bg;el.style.borderRadius=r+'px';el.style.padding=p+'px';el.style.boxShadow=sh;qs('#builder-code').textContent='.card {\n  background: '+bg+';\n  border-radius: '+r+'px;\n  padding: '+p+'px;\n  box-shadow: '+sh+';\n}'}
+['#card-bg','#card-radius','#card-padding','#card-shadow'].forEach(s=>qs(s).addEventListener('input',renderCard));renderCard();
+
+function clearQuiz(){qsa('.option').forEach(x=>x.classList.remove('correct','wrong'))}
+qs('#check').addEventListener('click',()=>{clearQuiz();let score=0,answered=0;qsa('#quiz fieldset').forEach(q=>{let s=q.querySelector('input:checked');if(!s)return;answered++;if(s.value===q.dataset.answer){score++;s.closest('.option').classList.add('correct')}else{s.closest('.option').classList.add('wrong');q.querySelector('input[value="'+q.dataset.answer+'"]').closest('.option').classList.add('correct')}});qs('#score').textContent=score+' / 5';qs('#quiz-feedback').textContent=answered<5?'Ответь на все вопросы. Сейчас: '+answered+' из 5.':score===5?'Отлично. Основы CSS понятны.':'Посмотри правильные ответы и попробуй ещё раз.'});
+qs('#reset-quiz').addEventListener('click',()=>{qsa('#quiz input').forEach(i=>i.checked=false);clearQuiz();qs('#score').textContent='0 / 5';qs('#quiz-feedback').textContent='Ответь на вопросы и нажми «Проверить».'});
+})();
+</script>
+</body>
+</html>
